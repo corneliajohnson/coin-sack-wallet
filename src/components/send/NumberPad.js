@@ -1,16 +1,21 @@
-import { Row, Col } from "reactstrap";
-import { useState } from "react";
+import { useState } from "react/cjs/react.development";
+import { Row, Col, Button } from "reactstrap";
+import NextButton from "./NextButton";
 
-const NumberPad = () => {
-  //const [digit, setDigit] = useState([]);
+export const NumberPad = () => {
+  const [fullDigit, setFullDigit] = useState("");
   const digits = [];
   const createNumber = (num) => {
-    if (num !== "<") {
-      digits.push(num);
+    if (num === "C") {
+      setFullDigit("");
     } else {
-      digits.pop();
+      digits.push(num);
+      setFullDigit((digits) => [...digits, num].join(""));
     }
-    return digits.join("");
+  };
+
+  const addMax = () => {
+    setFullDigit("Max");
   };
 
   const keypadDigits = [
@@ -60,23 +65,33 @@ const NumberPad = () => {
     },
     {
       id: "11",
-      digit: "<",
+      digit: "C",
     },
   ];
   return (
-    <Row className="row w-50">
-      {keypadDigits.map((keypad) => (
-        <Col
-          action
-          tag="button"
-          className="col-4"
-          onClick={(e) => createNumber(keypad.digit)}
-          key={keypad.id}
-        >
-          {keypad.digit}
-        </Col>
-      ))}
-    </Row>
+    <div>
+      <div className="mt-5 w-50">
+        <h1>{fullDigit === "" ? "$0.00" : `$ ${fullDigit}`}</h1>
+      </div>
+      <Button onClick={addMax} className="w-25 m-4">
+        MAX
+      </Button>
+      <Row className="row w-50">
+        {keypadDigits.map((keypad) => (
+          <Col
+            tag="button"
+            className="col-4 btn-light"
+            onClick={(e) => createNumber(keypad.digit)}
+            key={keypad.id}
+          >
+            {keypad.digit}
+          </Col>
+        ))}
+      </Row>
+      <div>
+        <NextButton />
+      </div>
+    </div>
   );
 };
 
