@@ -4,14 +4,16 @@ import { Button, ButtonGroup } from "reactstrap";
 
 const TransactionLinks = () => {
   return (
-    <ButtonGroup className="w-50" color="primary">
-      <Button>
-        <SendLink />
-      </Button>
-      <Button>
-        <RecieveLink />
-      </Button>
-    </ButtonGroup>
+    <div className="d-flex justify-content-center">
+      <ButtonGroup className="w-50" color="primary">
+        <Button>
+          <SendLink />
+        </Button>
+        <Button>
+          <RecieveLink />
+        </Button>
+      </ButtonGroup>
+    </div>
   );
 };
 

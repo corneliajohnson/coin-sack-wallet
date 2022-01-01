@@ -29,14 +29,17 @@ function UserCoins() {
     },
   ];
   return (
-    <>
-      <h4>Coins</h4>
-      <ListGroup className="w-75">
-        {userCoinsArray.map((coin) => (
-          <CoinCard coin={coin} key={coin.id} />
-        ))}
-      </ListGroup>
-    </>
+    <div className="d-flex justify-content-center mt-4">
+      <div className="w-75">
+        <h4>Coins</h4>
+        <h6>Balance</h6>
+        <ListGroup>
+          {userCoinsArray.map((coin) => (
+            <CoinCard coin={coin} key={coin.id} />
+          ))}
+        </ListGroup>
+      </div>
+    </div>
   );
 }
 

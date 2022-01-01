@@ -1,15 +1,16 @@
 import WalletBalance from "./WalletBalance";
 import TransactionLinks from "./transactions/TransactionLinks";
 import UserCoins from "./coins/UserCoins";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <div>
-      <div>Profile Name</div>
+    <div className="mt-5">
+      <div className="text-center">Profile Name</div>
       <WalletBalance />
       <TransactionLinks />
       <UserCoins />
-      <div>Footer</div>
+      <Footer />
     </div>
   );
 };

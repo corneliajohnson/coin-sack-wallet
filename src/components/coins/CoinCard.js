@@ -5,8 +5,8 @@ const CoinCard = ({ coin }) => {
   return (
     <ListGroupItem action tag="button">
       <Row class="row">
-        <Col class="col">{coin.icon}</Col>
-        <Col class="col-5">
+        <Col class="col-1">{coin.icon}</Col>
+        <Col class="col-5 ">
           <span>{coin.name}</span>
           <br /> <span>{coin.symbol}</span>
         </Col>
